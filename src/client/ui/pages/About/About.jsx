@@ -5,7 +5,7 @@ export default class About extends Component {
   render() {
     return (
       <div>
-        <p> This is About Page</p>
+        <p> This is About Page 3</p>
         <Link to='/'>Home</Link>
       </div>
     )

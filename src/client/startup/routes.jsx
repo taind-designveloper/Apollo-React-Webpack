@@ -7,14 +7,24 @@ import Home from '../ui/pages/Home/Home.jsx';
 import About from '../ui/pages/About/About.jsx';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.routes = {
+      component: MainLayout,
+      childRoutes: [
+        {
+          path: '/',
+          component: Home,
+        }, {
+          path: '/about',
+          component: About,
+        }
+      ]
+    }
+  }
   render() {
     return (
-      <Router history={hashHistory}>
-        <Route component={MainLayout}>
-          <Route name='home' path='/' component={Home}/>
-          <Route name='about' path='/about' component={About}/>
-        </Route>
-      </Router>
+      <Router history={hashHistory} routes={this.routes}/>
     )
   }
 }

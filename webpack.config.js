@@ -13,10 +13,17 @@ var config = {
     path: BUILD_DIR,
     filename: 'bundle.js',
   },
+  debug: true,
+  devtool: 'source-map',
   module: {
     loaders: [
       {
-        test: /\.jsx?/,
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        include: APP_DIR
+      },
+      {
+        test: /\.jsx$/,
         include: APP_DIR,
         loaders: ['react-hot','babel']
       }
